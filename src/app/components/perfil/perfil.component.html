@@ -17,7 +17,7 @@
 
       <div class="form-group">
         <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" formControlName="nombre" class="form-control">
+        <input type="text" id="nombre" formControlName="nombre" class="form-control" aria-label="Nombre">
         <div class="error-message" *ngIf="perfilForm.get('nombre')?.touched && perfilForm.get('nombre')?.errors?.['required']">
           El nombre es requerido
         </div>
@@ -25,7 +25,7 @@
 
       <div class="form-group">
         <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" formControlName="apellidos" class="form-control">
+        <input type="text" id="apellidos" formControlName="apellidos" class="form-control" aria-label="Apellidos">
         <div class="error-message" *ngIf="perfilForm.get('apellidos')?.touched && perfilForm.get('apellidos')?.errors?.['required']">
           Los apellidos son requeridos
         </div>
@@ -33,7 +33,7 @@
 
       <div class="form-group">
         <label for="carnetIdentidad">Carnet de Identidad</label>
-        <input type="text" id="carnetIdentidad" formControlName="carnetIdentidad" class="form-control">
+        <input type="text" id="carnetIdentidad" formControlName="carnetIdentidad" class="form-control" aria-label="Carnet de Identidad">
         <div class="error-message" *ngIf="perfilForm.get('carnetIdentidad')?.touched && perfilForm.get('carnetIdentidad')?.errors?.['required']">
           El carnet de identidad es requerido
         </div>
@@ -41,7 +41,7 @@
 
       <div class="form-group">
         <label for="empresa">Empresa</label>
-        <input type="text" id="empresa" formControlName="empresa" class="form-control">
+        <input type="text" id="empresa" formControlName="empresa" class="form-control" aria-label="Empresa">
         <div class="error-message" *ngIf="perfilForm.get('empresa')?.touched && perfilForm.get('empresa')?.errors?.['required']">
           La empresa es requerida
         </div>
@@ -49,7 +49,7 @@
 
       <div class="form-group">
         <label for="cargo">Cargo</label>
-        <input type="text" id="cargo" formControlName="cargo" class="form-control">
+        <input type="text" id="cargo" formControlName="cargo" class="form-control" aria-label="Cargo">
         <div class="error-message" *ngIf="perfilForm.get('cargo')?.touched && perfilForm.get('cargo')?.errors?.['required']">
           El cargo es requerido
         </div>
@@ -57,7 +57,7 @@
 
       <div class="form-group">
         <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" formControlName="telefono" class="form-control">
+        <input type="tel" id="telefono" formControlName="telefono" class="form-control" aria-label="Teléfono">
         <div class="error-message" *ngIf="perfilForm.get('telefono')?.touched && perfilForm.get('telefono')?.errors?.['required']">
           El teléfono es requerido
         </div>
@@ -65,7 +65,7 @@
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email" class="form-control">
+        <input type="email" id="email" formControlName="email" class="form-control" aria-label="Email">
         <div class="error-message" *ngIf="perfilForm.get('email')?.touched && perfilForm.get('email')?.errors?.['required']">
           El email es requerido
         </div>
