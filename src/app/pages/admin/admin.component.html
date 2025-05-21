@@ -1,0 +1,22 @@
+<div class="admin-layout">
+  <app-admin-sidebar></app-admin-sidebar>
+  <div class="admin-main">
+    <div class="admin-dashboard-content">
+      <!-- Aquí van las tarjetas, gráficos y listas -->
+      <div class="dashboard-cards-row">
+        <app-dashboard-card icon="person" title="Usuarios totales" value="24,521" subtitle="+12.5% respecto al mes pasado" color="orange"></app-dashboard-card>
+        <app-dashboard-card icon="person_add" title="Nuevos registros" value="1,482" subtitle="+8.2% respecto a la semana pasada" color="green"></app-dashboard-card>
+        <app-dashboard-card icon="flag" title="Reportes" value="64" subtitle="-5.3% respecto a ayer" color="red"></app-dashboard-card>
+        <app-dashboard-card icon="headset_mic" title="Tickets de soporte" value="28" subtitle="-3.1% respecto a la semana pasada" color="blue"></app-dashboard-card>
+      </div>
+      <div class="dashboard-charts-row">
+        <app-chart-card chartType="bar" title="Crecimiento de usuarios"></app-chart-card>
+        <app-chart-card chartType="doughnut" title="Demografía de usuarios"></app-chart-card>
+      </div>
+      <div class="dashboard-activity-row">
+        <app-activity-list type="activity"></app-activity-list>
+        <app-activity-list type="reports"></app-activity-list>
+      </div>
+    </div>
+  </div>
+</div> 

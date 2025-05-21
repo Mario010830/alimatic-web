@@ -1,0 +1,120 @@
+.sidebar {
+  width: 250px;
+  background: #fff;
+  border-right: 1.5px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 1rem 1rem;
+  min-height: 100vh;
+  box-shadow: 2px 0 12px 0 #ff98001a;
+}
+
+.sidebar-logo {
+  margin-bottom: 2.2rem;
+  .logo-img {
+    width: 70px;
+    height: 38px;
+    object-fit: contain;
+  }
+}
+
+.sidebar-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  .user-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.7rem;
+    border: 3px solid #ff9800;
+  }
+  .user-info {
+    text-align: center;
+    .user-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #181824;
+    }
+    .user-role {
+      font-size: 0.95rem;
+      color: #ff9800;
+      font-weight: 500;
+    }
+  }
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+  margin-bottom: 2.2rem;
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    color: #181824;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+    mat-icon {
+      font-size: 1.3rem;
+      color: #ff9800;
+    }
+    &.active, &:hover {
+      background: #fff3e0;
+      color: #ff9800;
+    }
+  }
+}
+
+.signout-btn {
+  margin-top: auto;
+  width: 90%;
+  background: #fff3e0;
+  color: #ff9800;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  mat-icon {
+    font-size: 1.2rem;
+  }
+  &:hover {
+    background: #ff9800;
+    color: #fff;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 70px;
+    padding: 1rem 0.2rem;
+    .sidebar-logo, .sidebar-user, .user-info, .signout-btn {
+      display: none;
+    }
+    .sidebar-menu .menu-item {
+      justify-content: center;
+      padding: 0.7rem 0.2rem;
+      font-size: 1.2rem;
+      mat-icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+} 

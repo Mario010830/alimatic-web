@@ -1,0 +1,351 @@
+.background-image-servicios {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: url('/assets/images/background/bg1.webp'), url('/assets/images/background/bg1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+.background-image-servicios::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 20, 0.85);
+  pointer-events: none;
+}
+
+.servicios-container {
+  min-height: 100vh;
+  background: none;
+  color: #fff;
+  position: relative;
+}
+
+.hero-section {
+  height: 40vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-content {
+  padding: 2rem;
+  font-family: 'Poppins', Arial, sans-serif;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--primary-orange, #ff9800);
+    letter-spacing: -1px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    font-weight: 400;
+  }
+}
+
+.services-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s cubic-bezier(.4,2,.6,1);
+  visibility: visible;
+  padding: 2rem 0;
+
+  &.right {
+    flex-direction: row-reverse;
+    transform: translateX(100px);
+  }
+
+  &.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.service-card {
+  flex: 0 0 500px;
+  height: 300px;
+  border-radius: 22px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.2);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: var(--primary-orange, #ff9800);
+    box-shadow: 0 12px 48px 0 rgba(255, 152, 0, 0.2);
+  }
+}
+
+.service-content {
+  flex: 1;
+  font-family: 'Poppins', Arial, sans-serif;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 1rem;
+
+  h3.orange {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-orange, #ff9800);
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+  }
+
+  .service-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    color: #e0e0e0;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.05rem;
+
+    &::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary-orange, #ff9800);
+    }
+  }
+}
+
+// Estilos para las cards específicas
+.servicio-piab {
+  background-image: url('/assets/images/services/piab.jpg');
+}
+
+.servicio-pesca {
+  background-image: url('/assets/images/services/pesca.webp'), url('/assets/images/services/pesca.jpg');
+}
+
+.servicio-automatizacion {
+  background-image: url('/assets/images/services/automatizacion.jpg');
+}
+
+.servicio-contable {
+  background-image: url('/assets/images/services/sicema.jpg');
+}
+
+.servicio-ventas {
+  background-image: url('/assets/images/services/ventas.jpg');
+}
+
+.servicio-soporte {
+  background-image: url('/assets/images/services/soporte.jpg');
+}
+
+.servicio-tienda {
+  background: rgba(24, 24, 36, 0.95);
+  border: 2px solid var(--primary-orange, #ff9800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: '🛍️';
+    font-size: 3rem;
+  }
+}
+
+.servicio-filler-1 {
+  background: rgba(24, 24, 36, 0.95);
+  border: 2px solid var(--primary-orange, #ff9800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: '🔧';
+    font-size: 3rem;
+  }
+}
+
+.servicio-filler-2 {
+  background-image: url('/assets/images/services/ventas.webp'), url('/assets/images/services/ventas.jpg');
+}
+
+.servicio-filler-3 {
+  background-image: url('/assets/images/services/soporte.webp'), url('/assets/images/services/soporte.jpg');
+}
+
+.visit-btn {
+  display: inline-block;
+  background: var(--primary-orange, #ff9800);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  &:hover:not(.disabled) {
+    background: transparent;
+    border-color: var(--primary-orange, #ff9800);
+    color: var(--primary-orange, #ff9800);
+    transform: translateY(-2px);
+  }
+
+  &.disabled {
+    background: #666;
+    color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+    border: 2px solid #444;
+    transform: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .service-row {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+
+    &.right {
+      flex-direction: column;
+    }
+  }
+
+  .service-card {
+    flex: 0 0 400px;
+    width: 100%;
+  }
+
+  .service-content {
+    text-align: center;
+
+    .service-features {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .service-card {
+    flex: 0 0 300px;
+  }
+
+  .service-content h3.orange {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-content {
+    padding: 2rem 0.5rem;
+    gap: 2rem;
+  }
+  .service-row {
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+  }
+  .service-card {
+    order: 2;
+    width: 100% !important;
+    max-width: 100vw;
+    height: 180px;
+    margin: 0 auto 1rem auto;
+    border-radius: 16px;
+  }
+  .service-content {
+    order: 3;
+    max-width: 100%;
+    padding: 0 0.5rem;
+    margin: 0 auto;
+    text-align: center;
+    h3.orange {
+      order: 1;
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+    .service-desc {
+      order: 2;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      text-align: justify;
+    }
+    .visit-btn {
+      order: 3;
+      width: 100%;
+      max-width: 320px;
+      margin: 0.7rem auto 0 auto;
+      display: block;
+      font-size: 1rem;
+      padding: 0.7rem 0;
+    }
+  }
+}

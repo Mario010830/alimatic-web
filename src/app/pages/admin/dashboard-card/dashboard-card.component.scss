@@ -1,0 +1,58 @@
+.dashboard-card {
+  background: #232323;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 #ff98001a;
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  min-width: 220px;
+  min-height: 120px;
+  flex: 1;
+  transition: box-shadow 0.2s;
+  border: 1.5px solid #292929;
+  &:hover {
+    box-shadow: 0 4px 24px 0 #ff980044;
+  }
+}
+.card-icon {
+  background: #2d2d2d;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mat-icon {
+    font-size: 2rem;
+    color: #ff9800;
+  }
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.card-title {
+  font-size: 1.05rem;
+  color: #ff9800;
+  font-weight: 500;
+}
+.card-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+}
+.card-subtitle {
+  font-size: 0.95rem;
+  color: #4caf50;
+  font-weight: 500;
+}
+.dashboard-card.orange .card-icon mat-icon { color: #ff9800; }
+.dashboard-card.green .card-icon mat-icon { color: #4caf50; }
+.dashboard-card.red .card-icon mat-icon { color: #f44336; }
+.dashboard-card.blue .card-icon mat-icon { color: #2196f3; }
+.dashboard-card.green .card-subtitle { color: #4caf50; }
+.dashboard-card.red .card-subtitle { color: #f44336; }
+.dashboard-card.blue .card-subtitle { color: #2196f3; }
+.dashboard-card.orange .card-subtitle { color: #ff9800; } 

@@ -1,0 +1,86 @@
+<div class="perfil-container">
+  <div class="perfil-card">
+    <h2>Mi Perfil</h2>
+    
+    <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()" class="perfil-form">
+      <div class="foto-perfil-container">
+        <div class="foto-perfil">
+          <img [src]="photoPreview || 'assets/images/default-avatar.png'" alt="Foto de perfil">
+          <div class="foto-perfil-overlay">
+            <label for="fotoPerfil" class="upload-button">
+              <mat-icon>photo_camera</mat-icon>
+            </label>
+            <input type="file" id="fotoPerfil" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre" class="form-control">
+        <div class="error-message" *ngIf="perfilForm.get('nombre')?.touched && perfilForm.get('nombre')?.errors?.['required']">
+          El nombre es requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" formControlName="apellidos" class="form-control">
+        <div class="error-message" *ngIf="perfilForm.get('apellidos')?.touched && perfilForm.get('apellidos')?.errors?.['required']">
+          Los apellidos son requeridos
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="carnetIdentidad">Carnet de Identidad</label>
+        <input type="text" id="carnetIdentidad" formControlName="carnetIdentidad" class="form-control">
+        <div class="error-message" *ngIf="perfilForm.get('carnetIdentidad')?.touched && perfilForm.get('carnetIdentidad')?.errors?.['required']">
+          El carnet de identidad es requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="empresa">Empresa</label>
+        <input type="text" id="empresa" formControlName="empresa" class="form-control">
+        <div class="error-message" *ngIf="perfilForm.get('empresa')?.touched && perfilForm.get('empresa')?.errors?.['required']">
+          La empresa es requerida
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cargo">Cargo</label>
+        <input type="text" id="cargo" formControlName="cargo" class="form-control">
+        <div class="error-message" *ngIf="perfilForm.get('cargo')?.touched && perfilForm.get('cargo')?.errors?.['required']">
+          El cargo es requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" formControlName="telefono" class="form-control">
+        <div class="error-message" *ngIf="perfilForm.get('telefono')?.touched && perfilForm.get('telefono')?.errors?.['required']">
+          El teléfono es requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control">
+        <div class="error-message" *ngIf="perfilForm.get('email')?.touched && perfilForm.get('email')?.errors?.['required']">
+          El email es requerido
+        </div>
+        <div class="error-message" *ngIf="perfilForm.get('email')?.touched && perfilForm.get('email')?.errors?.['email']">
+          Ingrese un email válido
+        </div>
+      </div>
+
+      <div class="error-message" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <button type="submit" [disabled]="!perfilForm.valid || loading" class="submit-button">
+        {{ loading ? 'Actualizando...' : 'Actualizar Perfil' }}
+      </button>
+    </form>
+  </div>
+</div> 

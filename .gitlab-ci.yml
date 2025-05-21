@@ -1,0 +1,90 @@
+stages:
+  - setup
+  - test
+  - build
+  - deploy
+
+
+default:
+  tags:
+    - ssh
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - echo "Verificando entorno..."
+  - node --version
+  - npm --version
+  - pwd
+  - ls -la
+
+# Instalación de dependencias
+install_dependencies:
+  stage: setup
+  script:
+    - echo "Instalando dependencias..."
+    - npm install
+    - echo "Dependencias instaladas correctamente"
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 day
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+    policy: pull-push
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
+
+# Ejecutar pruebas
+run_tests:
+  stage: test
+  tags:
+    - ssh
+  script:
+    - npm run test
+  dependencies:
+    - install_dependencies
+
+# Construir la aplicación
+build:
+  stage: build
+  tags:
+    - ssh
+  script:
+    - npm run build
+    - npm run build:ssr
+  artifacts:
+    paths:
+      - dist/
+  dependencies:
+    - install_dependencies
+
+# Despliegue
+deploy:
+  stage: deploy
+  tags:
+    - ssh
+  before_script:
+    # Configurar SSH
+    - apk add --no-cache openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "[$SSH_HOST]:$SSH_PORT $SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    # Copiar solo los archivos de construcción al servidor de producción
+    - scp -P $SSH_PORT -r dist/ $SSH_USER@$SSH_HOST:/home/docker/prueba/data/alimatic-web/
+    # Ejecutar docker-compose en el servidor
+    - ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd /home/docker/prueba/ && docker-compose up -d --build"
+  only:
+    - master 

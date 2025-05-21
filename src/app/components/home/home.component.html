@@ -1,0 +1,200 @@
+<section class="hero-section">
+  <div class="animated-background">
+    <div class="background-image" style="background-image: url('assets/images/background/bg1.webp'), url('assets/images/background/bg1.jpg');"></div>
+    <div class="background-image" style="background-image: url('assets/images/background/bg2.webp'), url('assets/images/background/bg2.jpg');"></div>
+    <div class="background-image" style="background-image: url('assets/images/background/bg3.webp'), url('assets/images/background/bg3.jpg');"></div>
+    <div class="background-image" style="background-image: url('assets/images/background/bg4.webp'), url('assets/images/background/bg4.jpg');"></div>
+  </div>
+  <div class="section-title">
+    <h1>Diseño e Ingeniería</h1>
+    <p class="orange">UEB Informática Villa Clara</p>
+    <p class="description">Impulsamos la transformación digital y la eficiencia en la gestión pública y empresarial con soluciones tecnológicas innovadoras y a medida.</p>
+    <div class="btn-group">
+      <a mat-raised-button routerLink="/contacto" class="main-btn">Comenzar</a>
+      <a mat-raised-button href="/servicios" class="main-btn outlined">Nuestros Servicios</a>
+    </div>
+  </div>
+</section>
+
+<main class="main-content">
+  <div class="dark-bg-blur">
+    <section class="mockup-gallery">
+      <div class="mockup-row">
+        <div class="mockup-img left">
+          <img src="assets/images/landing-page/1.jpg" alt="Mockup 1">
+        </div>
+        <div class="mockup-img center">
+          <img src="assets/images/landing-page/2.jpg" alt="Mockup 2">
+        </div>
+        <div class="mockup-img right">
+          <img src="assets/images/landing-page/3.jpg" alt="Mockup 3">
+        </div>
+      </div>
+    </section>
+
+    <section class="trusted-companies">
+      <h2 class="trusted-title">Con la confianza de más de 50 empresas</h2>
+      <div class="trusted-grid">
+        <div class="trusted-card"><img src="assets/images/companies/1.jpg" alt="Empresa 1" class="trusted-logo"></div>
+        <div class="trusted-card"><img src="assets/images/companies/2.jpg" alt="Empresa 2" class="trusted-logo"></div>
+        <div class="trusted-card"><img src="assets/images/companies/3.jpg" alt="Empresa 3" class="trusted-logo"></div>
+        <div class="trusted-card"><img src="assets/images/companies/4.jpg" alt="Empresa 4" class="trusted-logo"></div>
+        <div class="trusted-card"><img src="assets/images/companies/5.jpg" alt="Empresa 5" class="trusted-logo"></div>
+        <div class="trusted-card"><img src="assets/images/companies/6.jpg" alt="Empresa 6" class="trusted-logo"></div>
+        <div class="trusted-card"><img src="assets/images/companies/7.jpg" alt="Empresa 7" class="trusted-logo"></div>
+        <div class="trusted-card"><img src="assets/images/companies/8.jpg" alt="Empresa 8" class="trusted-logo"></div>
+      </div>
+    </section>
+
+    <section class="provide-section">
+      <div class="provide-container">
+        <div class="provide-text" #provideText>
+          <h2 class="ofrecemos-title"><span class="orange">Ofrecemos</span></h2>
+          <div class="provide-block">
+            <h3><span class="orange">Levantamiento</span> de Requisitos</h3>
+            <ul>
+              <li>Crear especificaciones claras que cubran funcionalidad, apariencia y requisitos no funcionales como rendimiento y escalabilidad.</li>
+              <li>Ayudamos a nuestros clientes a documentar sus requerimientos haciendo las preguntas correctas.</li>
+              <li>Recomendamos escenarios que no se hayan considerado en las especificaciones originales.</li>
+            </ul>
+          </div>
+          <div class="provide-block">
+            <h3><span class="orange">Ventas</span> Estatales</h3>
+            <ul>
+              <li>Te ayudamos a elegir los mejores productos para tus necesidades, ofreciendo soluciones que realmente te hacen la vida más fácil.</li>
+              <li>Nos aseguramos de que cada producto sea funcional, accesible y fácil de usar, para que empieces a disfrutarlo desde el primer día.</li>
+              <li>Trabajamos contigo de cerca, presentando opciones y ajustando detalles hasta que estés completamente satisfecho con tu compra.</li>
+            </ul>
+          </div>
+          <div class="provide-block">
+            <h3><span class="orange">Desarrollo</span> de Software</h3>
+            <ul>
+              <li>Desarrollo backend en la nube o local, APIs en .Net, NodeJS, PHP, etc.</li>
+              <li>Frontend con Angular, React u otros frameworks modernos.</li>
+              <li>Desarrollo móvil nativo o híbrido.</li>
+            </ul>
+          </div>
+          <div class="provide-block">
+            <h3><span class="orange">Pruebas</span> de Software</h3>
+            <ul>
+              <li>Implementación de pruebas unitarias y automatizadas.</li>
+              <li>Equipo de QA experimentado que prueba rigurosamente antes de llegar al usuario final.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="provide-images" #provideImages>
+          <img src="assets/images/provider/provider1.jpg" alt="Provider 1">
+          <img src="assets/images/provider/provider2.jpg" alt="Provider 2">
+          <img src="assets/images/provider/provider3.jpg" alt="Provider 3">
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <div class="container">
+        <h2 class="section-heading servicios-title">Servicios</h2>
+        <div class="services-grid" #servicesGrid>
+          <div class="services-column" #servicesLeft>
+            <div class="service-row">
+              <div class="service-card servicio-filler-1"></div>
+              <div class="service-content">
+                <h3 class="orange">Sistemas Contables</h3>
+                <div class="service-desc">Sistemas contables para gestion de empresas.</div>
+                <button mat-button class="ver-mas-btn" routerLink="/servicios">Ver más</button>
+              </div>
+            </div>
+            <div class="service-row">
+              <div class="service-card servicio-filler-2"></div>
+              <div class="service-content">
+                <h3 class="orange">Ventas</h3>
+                <div class="service-desc">Opciones de venta para empresas que requieren grandes cantidades de productos.</div>
+                <button mat-button class="ver-mas-btn" routerLink="/servicios">Ver más</button>
+              </div>
+            </div>
+            <div class="service-row">
+              <div class="service-card servicio-filler-3"></div>
+              <div class="service-content">
+                <h3 class="orange">Soporte Técnico</h3>
+                <div class="service-desc">Asistencia técnica especializada para resolver problemas y optimizar sistemas.</div>
+                <button mat-button class="ver-mas-btn" routerLink="/servicios">Ver más</button>
+              </div>
+            </div>
+          </div>
+          <div class="services-column" #servicesRight>
+            <div class="service-row">
+              <div class="service-card servicio-piab"></div>
+              <div class="service-content">
+                <h3 class="orange">PIAB</h3>
+                <div class="service-desc">Plataforma Web para la solicitud de licencias para alimentos y bebidas.</div>
+                <button mat-button class="ver-mas-btn" routerLink="/servicios">Ver más</button>
+              </div>
+            </div>
+            <div class="service-row">
+              <div class="service-card servicio-pesca"></div>
+              <div class="service-content">
+                <h3 class="orange">PESCA</h3>
+                <div class="service-desc">Plataforma Web para la solicitud de licencias de pesca.</div>
+                <button mat-button class="ver-mas-btn" routerLink="/servicios">Ver más</button>
+              </div>
+            </div>
+            <div class="service-row">
+              <div class="service-card servicio-automatizacion"></div>
+              <div class="service-content">
+                <h3 class="orange">Automatización Industrial</h3>
+                <div class="service-desc">Servicios de automatización industrial para aumentar la eficiencia y reducir costos de procesos industriales.</div>
+                <button mat-button class="ver-mas-btn" routerLink="/servicios">Ver más</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <h2 class="team-title">Nuestro equipo</h2>
+      <p class="team-subtitle">Nuestro equipo es tu equipo. Estamos aquí para ayudarte a ti y a tu empresa a brillar. Tu éxito es el nuestro.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="assets/images/team/alain.jpg" alt="Alain Sanchez">
+          </div>
+          <div class="team-name">Ing. Alain Sanchez</div>
+          <div class="team-role">Director de UEB Informática Villa Clara</div>
+          <div class="team-desc">Ingeniero informatico con amplia experiencia dirigiendo equipos y empresas.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="assets/images/team/martha.jpg" alt="Martha Portal">
+          </div>
+          <div class="team-name">Lic. Martha Portal</div>
+          <div class="team-role">Esp B Gestion de Recursos Humanos</div>
+          <div class="team-desc">Excelente profesional en el area de Recursos Humanos. Motivada en la gestion de personal y desarrollo de equipos.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="assets/images/team/floricel.webp" alt="Floricel Rosabal">
+          </div>
+          <div class="team-name">Msc. Floricel Rosabal</div>
+          <div class="team-role">Jefa de Servicios</div>
+          <div class="team-desc">Especialista con amplia experiencia en el area de gestion de servicios y soporte tecnico.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="assets/images/team/felix.jpg" alt="Félix">
+          </div>
+          <div class="team-name">Ing. Félix Paez</div>
+          <div class="team-role">Jefe de Grupo de Desarrollo</div>
+          <div class="team-desc">Experto en desarrollo de software con amplia experiencia en tecnologías modernas y arquitectura de sistemas.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="assets/images/team/yanelis.jpg" alt="Yanelis">
+          </div>
+          <div class="team-name">Lic. Yanelis Sabó</div>
+          <div class="team-role">Esp Gral en Gestión Económica</div>
+          <div class="team-desc">Especialista en contabilidad y finanzas. Con amplia experiencia en el area contable y financiera.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

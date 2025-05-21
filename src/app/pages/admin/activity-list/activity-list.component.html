@@ -1,0 +1,24 @@
+<div class="activity-list">
+  <div class="activity-title">
+    {{ type === 'activity' ? 'Actividad reciente' : 'Reportes recientes' }}
+  </div>
+  <ul class="activity-items">
+    <li *ngIf="type === 'activity'">
+      <span class="activity-user">Michael Roberts</span> <span class="activity-desc">Nuevo usuario registrado</span> <span class="activity-time">hace 2 minutos</span>
+    </li>
+    <li *ngIf="type === 'activity'">
+      <span class="activity-user">Usuario reportado</span> <span class="activity-desc">El usuario "Jessica Wilson" fue reportado por contenido inapropiado</span> <span class="activity-time">hace 15 minutos</span>
+    </li>
+    <li *ngIf="type === 'activity'">
+      <span class="activity-user">Ticket de soporte</span> <span class="activity-desc">Se creó el ticket de soporte #1234</span> <span class="activity-time">hace 42 minutos</span>
+    </li>
+    <li *ngIf="type === 'reports'">
+      <span class="activity-user">Jessica Wilson</span> <span class="activity-desc">Reportado hace 15m</span> <span class="activity-status pending">Pendiente</span>
+      <div class="activity-actions">
+        <button class="btn block">Bloquear</button>
+        <button class="btn dismiss">Descartar</button>
+        <button class="btn review">Revisar</button>
+      </div>
+    </li>
+  </ul>
+</div> 

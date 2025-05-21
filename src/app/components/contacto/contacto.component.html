@@ -1,0 +1,85 @@
+<div class="background-image-contacto"></div>
+<div class="contacto-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Contáctenos</h1>
+      <p class="subtitle">¡Estás a un paso de construir la solución perfecta para tu empresa!</p>
+    </div>
+  </div>
+
+  <div class="contact-steps">
+    <div class="steps-line">
+      <div class="step-dot first"></div>
+      <div class="step-dot middle"></div>
+      <div class="step-dot last"></div>
+      <div class="step-bar"></div>
+    </div>
+    <div class="steps-content">
+      <div class="step">
+        <h3><b>Prepararemos una propuesta</b></h3>
+        <p>Haremos las preguntas correctas para entender completamente tu visión y necesidades.</p>
+      </div>
+      <div class="step">
+        <h3><b>La discutimos juntos</b></h3>
+        <p>Te presentaremos una propuesta y la ajustaremos hasta que estés satisfecho.</p>
+      </div>
+      <div class="step">
+        <h3><b>¡Comenzamos a construir!</b></h3>
+        <p>Una vez acordado el alcance y el costo, desarrollaremos y entregaremos tu producto.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-content">
+    <div class="contact-info">
+      <div class="info-card">
+        <mat-icon>location_on</mat-icon>
+        <h3>Ubicación</h3>
+        <p>Villa Clara, Cuba</p>
+      </div>
+      <div class="info-card">
+        <mat-icon>phone</mat-icon>
+        <h3>Teléfono</h3>
+        <p>+53 52855478</p>
+      </div>
+      <div class="info-card">
+        <mat-icon>email</mat-icon>
+        <h3>Email</h3>
+        <p>contacto&#64;ids.vc.cu</p>
+      </div>
+    </div>
+
+    <div class="contact-form-modern">
+      <h2 class="form-title">¡Ponte en contacto con nosotros!</h2>
+      <p class="form-subtitle">Cuéntanos unas palabras sobre tu proyecto.</p>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre *</label>
+            <input id="nombre" type="text" formControlName="nombre" placeholder="Tu nombre" required />
+            <div class="error-message" *ngIf="contactForm.get('nombre')?.touched && contactForm.get('nombre')?.invalid">
+              {{ getErrorMessage('nombre') }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input id="email" type="email" formControlName="email" placeholder="tu@email.com" required />
+            <div class="error-message" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+              {{ getErrorMessage('email') }}
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje *</label>
+          <textarea id="mensaje" formControlName="mensaje" rows="5" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+          <div class="error-message" *ngIf="contactForm.get('mensaje')?.touched && contactForm.get('mensaje')?.invalid">
+            {{ getErrorMessage('mensaje') }}
+          </div>
+        </div>
+        <button class="main-btn-orange" type="submit" [disabled]="!contactForm.valid || isSubmitting">
+          {{ isSubmitting ? 'Enviando...' : '¡Contáctanos!' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div> 

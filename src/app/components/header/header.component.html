@@ -1,0 +1,57 @@
+<mat-toolbar class="header" [class.scrolled]="isScrolled" [class.blur-bg]="blurBg" [ngStyle]="{'background-color': blurBg ? '#181824' : 'rgba(24,24,36,' + headerOpacity + ')', 'backdrop-filter': blurBg ? 'blur(10px)' : 'none'}">
+  <button class="hamburger" (click)="toggleMobileMenu()" aria-label="Abrir menú" *ngIf="!mobileMenuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="logo-group">
+    <img src="assets/images/logo/logo.jpg" alt="Logo IDS" class="logo-img" />
+    <span class="logo-text logo-full">IDS Informática Villa Clara</span>
+    <span class="logo-text logo-short">IDS INFORMATICA VC</span>
+  </div>
+  <span class="spacer"></span>
+  <nav class="nav-links">
+    <a mat-button routerLink="/" class="poppins-font">Inicio</a>
+    <a mat-button routerLink="/servicios" class="poppins-font">Servicios</a>
+    <a mat-button routerLink="/contacto" class="poppins-font">Contáctenos</a>
+  </nav>
+  <div class="auth-buttons" *ngIf="!authService.isAuthenticated()">
+    <a mat-button class="login-button" routerLink="/login">Entrar</a>
+    <a mat-button class="register-button" routerLink="/register">Registrarse</a>
+  </div>
+  <div class="user-menu" *ngIf="authService.isAuthenticated()">
+    <button class="profile-button" [matMenuTriggerFor]="userMenu">
+      <img *ngIf="authService.getCurrentUser()?.fotoPerfil" [src]="'http://localhost:3000/' + authService.getCurrentUser()?.fotoPerfil" alt="Foto de perfil" class="profile-image" />
+      <mat-icon *ngIf="!authService.getCurrentUser()?.fotoPerfil">account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item *ngIf="authService.isAdmin()" routerLink="/admin">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Panel de Administración</span>
+      </button>
+      <button mat-menu-item routerLink="/perfil">
+        <mat-icon>person</mat-icon>
+        <span>Mi Perfil</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<nav class="mobile-menu" [class.open]="mobileMenuOpen">
+  <button class="close-btn" (click)="toggleMobileMenu()" aria-label="Cerrar menú">&times;</button>
+  <a mat-button routerLink="/" (click)="toggleMobileMenu()">Inicio</a>
+  <a mat-button routerLink="/servicios" (click)="toggleMobileMenu()">Servicios</a>
+  <a mat-button routerLink="/contacto" (click)="toggleMobileMenu()">Contáctenos</a>
+  <ng-container *ngIf="!authService.isAuthenticated()">
+    <a routerLink="/login" (click)="toggleMobileMenu()">Entrar</a>
+    <a routerLink="/register" (click)="toggleMobileMenu()">Registrarse</a>
+  </ng-container>
+  <ng-container *ngIf="authService.isAuthenticated()">
+    <a routerLink="/perfil" (click)="toggleMobileMenu()">Mi Perfil</a>
+    <a *ngIf="authService.isAdmin()" routerLink="/admin" (click)="toggleMobileMenu()">Panel de Administración</a>
+    <a (click)="logout(); toggleMobileMenu()">Cerrar Sesión</a>
+  </ng-container>
+</nav>
