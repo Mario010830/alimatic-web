@@ -4,22 +4,23 @@
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
-  background-color: #f5f5f5;
+  background-color: #f7f8fc; // Lighter, modern background
 }
 
 .perfil-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff; // Explicit white
+  padding: 2.5rem; // Increased padding
+  border-radius: 12px; // Slightly larger border-radius
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08); // More subtle shadow
   width: 100%;
-  max-width: 500px;
+  max-width: 600px; // Slightly wider card
 }
 
 h2 {
   text-align: center;
-  color: #333;
-  margin-bottom: 2rem;
+  color: #2c3e50; // Darker, more modern heading color
+  margin-bottom: 2.5rem; // Increased margin
+  font-weight: 600; // Bolder heading
 }
 
 .perfil-form {
@@ -31,16 +32,17 @@ h2 {
 .foto-perfil-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem; // Increased margin
 }
 
 .foto-perfil {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 160px; // Slightly larger
+  height: 160px; // Slightly larger
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--primary-orange, #ff9800); // Accent border
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); // Enhanced shadow
 
   img {
     width: 100%;
@@ -54,33 +56,38 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(44, 62, 80, 0.6); // Darker overlay for better contrast
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
 
     &:hover {
       opacity: 1;
+      background: rgba(44, 62, 80, 0.7); // Slightly darker on hover
     }
 
     .upload-button {
       cursor: pointer;
       color: white;
-      padding: 0.5rem;
+      padding: 1rem; // Increased padding for a larger click area
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      transition: background-color 0.3s ease;
+      background: rgba(255, 255, 255, 0.1); // More subtle background
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: flex; // To center mat-icon properly
+      align-items: center; // To center mat-icon properly
+      justify-content: center; // To center mat-icon properly
 
       &:hover {
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1); // Slight zoom effect
       }
 
       mat-icon {
-        font-size: 24px;
-        width: 24px;
-        height: 24px;
+        font-size: 28px; // Larger icon
+        width: 28px;   // Larger icon
+        height: 28px;  // Larger icon
       }
     }
   }
@@ -89,52 +96,153 @@ h2 {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem; // Slightly increased gap
 }
 
 label {
-  font-weight: 500;
-  color: #555;
+  font-weight: 600; // Bolder labels
+  color: #34495e; // Darker label color
+  font-size: 0.9rem; // Slightly smaller label
+  margin-bottom: 0.1rem; // Add a bit of space below label
 }
 
 .form-control {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.85rem 1rem; // Increased padding
+  border: 1px solid #bdc3c7; // Softer border color
+  border-radius: 6px; // Slightly more rounded corners
   font-size: 1rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: #2c3e50; // Darker text color
 
   &:focus {
     outline: none;
     border-color: var(--primary-orange, #ff9800);
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.25); // Focus ring using primary orange
   }
 }
 
 .error-message {
-  color: #dc3545;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
+  color: #e74c3c; // Slightly adjusted error color
+  font-size: 0.85rem; // Slightly smaller
+  margin-top: 0.3rem;
 }
 
 .submit-button {
-  background-color: var(--primary-orange, #ff9800);
+  background-color: var(--primary-orange, #e67e22); // Using a potentially different shade of orange or fallback
   color: white;
-  padding: 0.75rem;
+  padding: 0.85rem 1.5rem; // Adjusted padding
   border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: 500;
+  border-radius: 50px; // Pill shape
+  font-size: 1.05rem; // Slightly larger font
+  font-weight: 600; // Bolder
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 1.5rem; // Increased margin
+  text-transform: uppercase; // Uppercase text
+  letter-spacing: 0.5px; // Slight letter spacing
+  box-shadow: 0 4px 10px rgba(0,0,0, 0.1);
+
 
   &:hover:not([disabled]) {
-    background-color: #ffbb55;
-    transform: translateY(-2px);
+    background-color: var(--primary-orange-darker, #d35400); // Darker shade on hover
+    transform: translateY(-3px); // More pronounced lift
+    box-shadow: 0 6px 12px rgba(0,0,0, 0.15);
   }
 
   &:disabled {
-    background-color: #ccc;
+    background-color: #bdc3c7; // Muted disabled color
+    color: #7f8c8d;
     cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
   }
-} 
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .perfil-card {
+    padding: 2rem;
+    margin: 1rem; // Add some margin on smaller screens
+  }
+
+  h2 {
+    font-size: 1.8rem; // Adjust heading size
+    margin-bottom: 2rem;
+  }
+
+  .foto-perfil {
+    width: 120px; // Smaller profile picture
+    height: 120px;
+    border-width: 2px; // Thinner border
+  }
+
+  .foto-perfil-container {
+    margin-bottom: 2rem;
+  }
+
+  .form-control {
+    padding: 0.8rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  label {
+    font-size: 0.85rem;
+  }
+
+  .submit-button {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil-container {
+    padding: 1rem 0.5rem; // Reduce padding for very small screens
+  }
+  .perfil-card {
+    padding: 1.5rem; // Further reduce card padding
+    border-radius: 10px; // Slightly smaller radius
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .foto-perfil {
+    width: 100px;
+    height: 100px;
+  }
+
+  .foto-perfil-overlay .upload-button mat-icon {
+    font-size: 24px; // Smaller icon for upload
+    width: 24px;
+    height: 24px;
+  }
+   .foto-perfil-overlay .upload-button {
+    padding: 0.8rem;
+   }
+
+
+  .form-group {
+    gap: 0.5rem; // Reduce gap between form elements
+  }
+
+  .form-control {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  label {
+    font-size: 0.8rem;
+  }
+
+  .submit-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .error-message {
+    font-size: 0.8rem;
+  }
+}

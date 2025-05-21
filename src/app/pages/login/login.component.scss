@@ -1,3 +1,17 @@
+:host {
+  --primary-orange: #ff9800; // Or your specific orange
+  --primary-orange-rgb: 255, 152, 0; // RGB for box shadows with alpha
+  --primary-orange-darker: #c77700; // For hover states
+  --login-card-bg: rgba(24, 24, 36, 0.98); // Dark background like contact form
+  --text-light: #f0f0f0; // Light text color
+  --text-secondary-light: #c0c0c0; // Lighter secondary text
+  --input-border-color: var(--primary-orange);
+  --input-text-color: #ffffff;
+  --input-label-color: rgba(255, 255, 255, 0.7);
+  --input-focus-border-color: #ffbb55; // Lighter orange for focus
+  --error-color: #ff4444;
+}
+
 .login-container {
   position: fixed;
   top: 0;
@@ -19,20 +33,21 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(24, 24, 36, 0.7);
+  background: rgba(10, 10, 20, 0.85); // Match contact form overlay
   z-index: 0;
 }
 
 .login-card {
-  background: rgba(255, 255, 255, 0.97);
-  border-radius: 16px;
-  padding: 1.8rem 1.7rem;
+  background: var(--login-card-bg);
+  border-radius: 18px; // Match contact form
+  padding: 2.5rem 2rem; // Increased padding
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  max-width: 420px; // Slightly wider
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.3); // Adjusted shadow
+  border: 2px solid var(--primary-orange); // Match contact form
   position: relative;
   z-index: 1;
-  margin: 1.3rem 0.5rem;
+  margin: 1rem; // Adjusted margin
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,45 +55,109 @@
 
 .login-header {
   text-align: center;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1.5rem; // Increased margin
 
   .login-logo {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 0.3rem;
+    width: 60px; // Slightly larger logo
+    height: 60px;
+    margin-bottom: 0.8rem; // Increased margin
   }
 
   h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    color: #181824;
+    font-size: 2.2rem; // Adjusted size
+    margin-bottom: 0.8rem; // Adjusted margin
+    font-weight: 700; // Adjusted weight
+    letter-spacing: -0.5px;
+    color: var(--primary-orange); // Accent color for title
   }
 
   p {
-    font-size: 0.8rem;
+    font-size: 1rem; // Adjusted size
     margin: 0;
+    color: var(--text-secondary-light); // Light secondary text
   }
 }
 
 .form-group {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem; // Consistent margin
 }
 
-.form-group mat-form-field {
-  width: 95%;
-  max-width: 350px;
-  font-size: 1.15rem;
+// Styling for mat-form-field to match .contact-form-modern
+::ng-deep .form-group {
+  .mat-mdc-form-field {
+    width: 100%; // Full width within its container
+  }
+
+  .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline__leading,
+  .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline__notch,
+  .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline__trailing {
+    border-color: var(--input-border-color) !important;
+    border-width: 1.5px !important; // Match contact form input border
+  }
+
+  .mat-mdc-form-field .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: var(--input-text-color) !important;
+  }
+  
+  .mat-mdc-form-field .mdc-floating-label,
+  .mat-mdc-form-field .mat-mdc-select-arrow, // For select if used
+  .mat-mdc-form-field .mat-mdc-icon-button mat-icon, // For suffix icons
+  .mat-mdc-form-field .mat-mdc-form-field-icon-prefix mat-icon { // For prefix icons
+    color: var(--input-label-color) !important;
+  }
+
+  // Focused state
+  .mat-mdc-form-field.mat-focused .mdc-text-field--outlined .mdc-notched-outline__leading,
+  .mat-mdc-form-field.mat-focused .mdc-text-field--outlined .mdc-notched-outline__notch,
+  .mat-mdc-form-field.mat-focused .mdc-text-field--outlined .mdc-notched-outline__trailing {
+    border-color: var(--input-focus-border-color) !important;
+    box-shadow: 0 0 0 2px var(--input-focus-border-color) !important; // Similar to contact form focus
+  }
+  .mat-mdc-form-field.mat-focused .mdc-floating-label {
+    color: var(--input-focus-border-color) !important;
+  }
+
+  .mat-mdc-form-field .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+  .mat-mdc-form-field .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+  .mat-mdc-form-field .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--error-color) !important;
+  }
+  .mat-mdc-form-field.mat-mdc-form-field-invalid .mat-mdc-form-field-error {
+     color: var(--error-color) !important;
+     font-size: 0.85rem;
+  }
 }
+
 
 .form-options {
-  margin-bottom: 0.7rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem; // Increased margin
+  color: var(--text-secondary-light);
 }
+
+// Styling for mat-checkbox
+::ng-deep .form-options {
+  .mat-mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true]) ~ .mdc-checkbox__background {
+    border-color: var(--input-label-color) !important; // Border color for unchecked
+  }
+  .mat-mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+  .mat-mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+    background-color: var(--primary-orange) !important;
+    border-color: var(--primary-orange) !important;
+  }
+  .mat-mdc-checkbox .mdc-checkbox__ripple {
+    display: none; // Remove ripple for cleaner look
+  }
+  .mat-mdc-checkbox .mdc-label {
+    color: var(--text-secondary-light) !important;
+    font-size: 0.9rem;
+  }
+}
+
 
 .login-form {
   width: 100%;
@@ -87,89 +166,104 @@
   align-items: center;
 }
 
-.mat-mdc-checkbox label, .mat-checkbox label, .mat-checkbox-layout {
-  font-family: 'Poppins', Arial, sans-serif !important;
-  font-size: 0.98rem;
-}
-
 .forgot-password {
-  align-self: flex-end;
-  color: #ff9800;
+  color: var(--primary-orange) !important;
   text-decoration: none;
   font-size: 0.9rem;
+  font-weight: 500;
   transition: color 0.3s ease;
-  margin-top: 0.2rem;
-  margin-left: 4.5rem;
 
   &:hover {
-    color: #c77700;
+    color: var(--primary-orange-darker) !important;
   }
 }
 
+// Styles for the main login button, similar to .main-btn-orange
 button[type="submit"] {
-  margin-bottom: 0.7rem;
-  padding: 0.5rem;
-  font-size: 0.95rem;
   width: 100%;
-  font-weight: 500;
-  border-radius: 8px;
-  background: var(--primary-orange);
-  color: white;
+  background: var(--primary-orange) !important;
+  color: #fff !important; // White text on orange button
+  font-size: 1.1rem; // Match contact form button
+  font-weight: 600; // Match contact form button
   border: none;
+  border-radius: 8px; // Match contact form button
+  padding: 0.9rem 0; // Adjusted padding
+  margin-top: 0.5rem; // Adjusted margin
+  margin-bottom: 1.5rem; // Increased margin
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-family: 'Poppins', Arial, sans-serif;
+  box-shadow: 0 2px 8px 0 rgba(var(--primary-orange-rgb), 0.2);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
 
-  &:hover:not(:disabled) {
-    background: darken(#ff9800, 10%);
+  &:hover:not([disabled]) {
+    background: var(--primary-orange-darker) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px 0 rgba(var(--primary-orange-rgb), 0.3);
   }
 
   &:disabled {
-    background: #ccc;
+    background: #555 !important; // Darker disabled background
+    color: #999 !important;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 
   mat-spinner {
-    margin: 0 auto;
+    width: 24px !important; // Ensure spinner size is controlled
+    height: 24px !important;
+    margin: 0 auto; // Center spinner if text is hidden
+    circle { // Make spinner color contrast with button
+      stroke: #fff !important;
+    }
   }
 }
 
 .register-link {
   text-align: center;
-  color: #666;
-  font-size: 0.9rem;
+  color: var(--text-secondary-light); // Light text
+  font-size: 0.95rem; // Adjusted size
   font-family: 'Poppins', Arial, sans-serif;
 
   a {
-    color: #ff9800;
+    color: var(--primary-orange) !important;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600; // Bolder link text
     transition: color 0.3s ease;
     font-family: 'Poppins', Arial, sans-serif;
 
     &:hover {
-      color: #c77700;
+      color: var(--primary-orange-darker) !important;
     }
   }
 }
 
 @media (max-width: 480px) {
   .login-card {
-    padding: 0.7rem 0.3rem;
+    padding: 2rem 1.5rem; // Adjusted padding for small screens
     max-width: 95vw;
+    margin: 0.5rem;
   }
 
   .login-header h1 {
-    font-size: 1.4rem;
+    font-size: 1.8rem; // Adjusted for small screens
+  }
+  .login-header p {
+    font-size: 0.9rem;
   }
 
-  .form-group mat-form-field {
-    width: 100%;
-    max-width: 98vw;
+  // ::ng-deep .form-group .mat-mdc-form-field - already full width
+  // No specific changes needed for form field width here if already 100%
+  button[type="submit"] {
+    padding: 0.8rem 0;
     font-size: 1rem;
+  }
+  .register-link, .form-options .mat-mdc-checkbox .mdc-label, .forgot-password {
+    font-size: 0.85rem;
   }
 }
 

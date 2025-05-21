@@ -1,8 +1,23 @@
+:host {
+  --admin-bg: #1A1A1A; // Slightly refined background
+  --card-bg: #222222; // Background for cards
+  --card-border: #333333; // Border for cards
+  --text-primary: #E0E0E0; // Primary text color
+  --text-secondary: #B0B0B0; // Secondary text color
+  --accent-color: var(--primary-orange, #ff9800); // Accent color from global styles or fallback
+  --shadow-color: rgba(0, 0, 0, 0.2); // Softer shadow
+  --card-shadow: 0 4px 12px var(--shadow-color);
+  --card-hover-shadow: 0 6px 18px var(--shadow-color);
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+}
+
 .admin-layout {
   display: flex;
   min-height: 100vh;
-  background: #181818;
+  background: var(--admin-bg);
   font-family: 'Poppins', Arial, sans-serif;
+  color: var(--text-primary);
 }
 
 .admin-main {
@@ -13,30 +28,54 @@
 }
 
 .admin-dashboard-content {
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
-  background: #181818;
+  padding: 3rem; // Increased padding
+  background: var(--admin-bg);
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: calc(65px + 2rem); // Considering fixed header/sidebar margin
 }
 
 .dashboard-cards-row,
 .dashboard-charts-row,
 .dashboard-activity-row {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  gap: 2rem; // Increased gap
+  margin-bottom: 3rem; // Increased margin
 }
 
-@media (max-width: 1100px) {
-  .dashboard-cards-row, .dashboard-charts-row, .dashboard-activity-row {
+@media (max-width: 1200px) { // Adjusted breakpoint
+  .dashboard-cards-row,
+  .dashboard-charts-row,
+  .dashboard-activity-row {
+    gap: 1.5rem; // Slightly reduced gap for medium screens
+  }
+}
+
+
+@media (max-width: 992px) { // Adjusted breakpoint for tablets
+  .dashboard-cards-row,
+  .dashboard-charts-row,
+  .dashboard-activity-row {
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem; // Consistent gap for stacked items
   }
   .admin-dashboard-content {
-    padding: 1rem;
+    padding: 2rem 1.5rem; // Adjusted padding for tablets
+    padding-top: calc(65px + 1.5rem);
+  }
+}
+
+@media (max-width: 768px) { // Mobile devices
+  .admin-dashboard-content {
+    padding: 1.5rem 1rem; // Further reduced padding for mobile
+    padding-top: calc(65px + 1rem);
+  }
+   .dashboard-cards-row,
+   .dashboard-charts-row,
+   .dashboard-activity-row {
+    gap: 1rem;
   }
 }
 
 .admin-layout > app-admin-sidebar, .admin-layout > .sidebar {
-  margin-top: 65px;
-} 
+  margin-top: 65px; 
+}
